@@ -30,4 +30,11 @@ public class UtilisateurController {
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
     }
+
+    // GET /api/utilisateurs/count
+    @GetMapping("/dashboard")
+    public ResponseEntity<Long> getNbUtilisateursTotal() {
+        long count = utilisateurService.nbUtilisateursTotal();
+        return ResponseEntity.ok(count);
+    }
 }

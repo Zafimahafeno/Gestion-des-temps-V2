@@ -62,32 +62,8 @@ public class UtilisateurService {
         return utilisateurRepository.findById(id);
     }
 
-    // UPDATE (Mettre à jour un utilisateur existant)
-    public Utilisateur updateUtilisateur(Long id, Utilisateur utilisateurDetails) {
-        return utilisateurRepository.findById(id)
-            .map(utilisateur -> {
-                if (utilisateurDetails.getNom() != null) {
-                    utilisateur.setNom(utilisateurDetails.getNom());
-                }
-                if (utilisateurDetails.getEmail() != null) {
-                    // Vérification de l'unicité de l'email à ajouter si changement
-                    utilisateur.setEmail(utilisateurDetails.getEmail());
-                }
-                // Si le mot de passe est fourni, le hacher avant de le sauvegarder
-                if (utilisateurDetails.getMotDePasse() != null && !utilisateurDetails.getMotDePasse().isEmpty()) {
-                    String hashedPassword = passwordEncoder.encode(utilisateurDetails.getMotDePasse());
-                    utilisateur.setMotDePasse(hashedPassword);
-                }
-                return utilisateurRepository.save(utilisateur);
-            })
-            .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé avec l'ID: " + id));
-    }
-
-    // DELETE (Supprimer un utilisateur)
-    public void deleteUtilisateur(Long id) {
-        if (!utilisateurRepository.existsById(id)) {
-            throw new RuntimeException("Utilisateur non trouvé avec l'ID: " + id);
-        }
-        utilisateurRepository.deleteById(id);
+    //AFFICHER DASHBOARD
+    public long nbUtilisateursTotal() {
+        return utilisateurRepository.count();
     }
 }
