@@ -65,4 +65,19 @@ public class TacheController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    // GET /api/taches/count/encours/utilisateur/{userId}
+    @GetMapping("/count/encours/utilisateur/{userId}")
+    public ResponseEntity<Long> getNbTachesEnCoursParUtilisateur(@PathVariable Long userId) {
+        long count = tacheService.nbTachesEnCoursParUtilisateur(userId);
+        return ResponseEntity.ok(count);
+    }
+
+    // GET /api/taches/count/terminees/utilisateur/{userId}
+    @GetMapping("/count/terminees/utilisateur/{userId}")
+    public ResponseEntity<Long> getNbTachesTermineesParUtilisateur(@PathVariable Long userId) {
+        long count = tacheService.nbTachesTermineesParUtilisateur(userId);
+        return ResponseEntity.ok(count);
+    }
+
 }

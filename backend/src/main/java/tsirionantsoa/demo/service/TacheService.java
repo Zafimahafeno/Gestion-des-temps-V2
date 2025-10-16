@@ -76,4 +76,16 @@ public class TacheService {
         }
         tacheRepository.deleteById(id);
     }
+
+    // Affiche le nombre de tâches terminées.
+    public long nbTachesTermineesParUtilisateur(Long utilisateurId) {
+        // Remplacez "TERMINÉ" par la valeur exacte de votre statut.
+        return tacheRepository.countByProjetUtilisateurIdAndStatus(utilisateurId, "TERMINÉ");
+    }
+
+    // Affiche le nombre de tâches en cours.
+    public long nbTachesEnCoursParUtilisateur(Long utilisateurId) {
+        // Remplacez "EN_COURS" par la valeur exacte de votre statut.
+        return tacheRepository.countByProjetUtilisateurIdAndStatus(utilisateurId, "EN_COURS");
+    }
 }

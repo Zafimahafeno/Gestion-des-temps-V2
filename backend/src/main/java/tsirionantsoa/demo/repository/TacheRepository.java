@@ -7,4 +7,7 @@ import java.util.List;
 public interface TacheRepository extends JpaRepository<Tache, Long> {
     // Trouver toutes les tâches appartenant à un projet spécifique
     List<Tache> findByProjetId(Long projetId);
+
+    // Compte les tâches par statut pour les projets créés par un utilisateur donné.
+    long countByProjetUtilisateurIdAndStatus(Long utilisateurId, String status);
 }
