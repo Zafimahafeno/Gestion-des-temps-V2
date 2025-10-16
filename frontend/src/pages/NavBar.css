@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Variables de couleurs et de polices pour la cohérence */
+:root {
+    --bg-dark: #1e1e1e;
+    --bg-dark-light: #2a2a2a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent-blue: #4f46e5;
+    --accent-blue-hover: #4338ca;
+    --navbar-height: 60px;
+}
+
+/* Conteneur principal de la barre de navigation */
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+/* Contenu centré de la barre de navigation */
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Marque de l'application (logo + titre) */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.navbar-logo {
+    color: var(--accent-blue);
+}
+
+.navbar-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Conteneurs pour les deux groupes de boutons */
+.navbar-group {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Conteneur pour les boutons principaux de navigation */
+.navbar-main-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Style du conteneur du bouton de profil et de sa liste déroulante */
+.navbar-profile-dropdown-container {
+    position: relative;
+}
+
+/* Style des boutons de navigation */
+.navbar-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 9999px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar-btn:hover {
+    background-color: var(--bg-dark-light);
+    color: var(--text-primary);
+}
+
+.navbar-btn-active {
+    background-color: var(--accent-blue);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4);
+}
+
+.navbar-btn-active:hover {
+    background-color: var(--accent-blue-hover);
+}
+
+.navbar-btn-text {
+    display: none; /* Cache le texte par défaut */
+}
+
+/* Style de la liste déroulante */
+.navbar-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px); /* 10px sous le bouton */
+    right: 0;
+    background-color: var(--bg-dark);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    padding: 0.5rem;
+    min-width: 200px;
+    z-index: 20; /* Assure que le menu est au-dessus du reste */
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+    text-align: left;
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-dark-light);
+}
+
+/* Media queries pour les appareils mobiles */
+@media (min-width: 640px) {
+    .navbar-btn-text {
+        display: inline; /* Affiche le texte sur les écrans plus larges */
+    }
+
+    .navbar-btn {
+        padding: 0.75rem 1.5rem;
+    }
+}

@@ -1,0 +1,352 @@
+/* Styles généraux pour le design sombre Glassmorphism */
+body {
+    background-color: #1a1a2e; /* Fond sombre */
+    font-family: 'Inter', sans-serif;
+    color: #f0f4f8; /* Texte clair */
+}
+
+.projet-page-container {
+    width: 250%;
+    margin: 4rem auto;
+    padding: 2.5rem;
+    background-color: rgba(30, 30, 50, 0.5); /* Semi-transparent */
+    backdrop-filter: blur(10px); /* Effet de flou pour le glassmorphism */
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.page-title {
+    text-align: center;
+    color: #e0e7ff;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Bouton d'ajout */
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.btn-add-projet {
+    padding: 0.75rem 1.5rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-add-projet:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+}
+
+/* Styles pour le tableau */
+.projet-list-card {
+    width:100%;
+    background-color: rgba(30, 30, 50, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.list-title {
+    color: #e0e7ff;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.projet-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.projet-table th, .projet-table td {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.projet-table th {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #c0c0c0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.projet-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.projet-table td {
+    font-size: 1rem;
+    color: #f0f4f8;
+}
+
+.no-projects {
+    text-align: center;
+    color: #c0c0c0;
+    font-style: italic;
+    padding: 2rem;
+}
+
+/* Formulaire d'édition dans le tableau */
+.projet-edit-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+}
+
+.projet-edit-form .form-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #f0f4f8;
+    border-radius: 4px;
+}
+
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Boutons */
+.btn-edit, .btn-delete, .btn-update, .btn-cancel {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-edit {
+    background-color: #f1c40f;
+    color: #2c3e50;
+}
+
+.btn-edit:hover {
+    background-color: #f39c12;
+    transform: scale(1.1);
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+.btn-update {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.btn-update:hover {
+    background-color: #27ae60;
+    transform: scale(1.1);
+}
+
+.btn-cancel {
+    background-color: #7f8c8d;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: #95a5a6;
+    transform: scale(1.1);
+}
+
+/* Modale */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: rgba(30, 30, 50, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px; /* Augmenté pour le formulaire en grille */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-title {
+    color: #e0e7ff;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.modal-message {
+    font-size: 1rem;
+    color: #c0c0c0;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.modal-message strong {
+    font-weight: 600;
+    color: #f0f4f8;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.modal-btn-cancel, .modal-btn-confirm {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-btn-cancel {
+    background-color: #34495e;
+    color: #ecf0f1;
+}
+
+.modal-btn-cancel:hover {
+    background-color: #2c3e50;
+}
+
+.modal-btn-confirm {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.modal-btn-confirm:hover {
+    background-color: #c0392b;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #7f8c8d;
+    transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+    color: #bdc3c7;
+}
+
+/* Styles du formulaire améliorés pour la grille */
+.projet-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #c0c0c0;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #f0f4f8;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.form-actions {
+    grid-column: span 2;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .projet-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-actions {
+        grid-column: span 1;
+    }
+}

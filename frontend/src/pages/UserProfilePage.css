@@ -1,0 +1,208 @@
+/* Fichier: UserProfilePage.css */
+
+/* Importation de la police Google Fonts pour un look moderne */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Définition des variables CSS pour un thème sombre et des couleurs cohérentes */
+:root {
+    --bg-dark: #1e1e1e;
+    --bg-card: #2c2c2c;
+    --bg-card-hover: #3a3a3a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border-color: #444;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --accent-blue: #4f46e5;
+    --accent-blue-hover: #4338ca;
+    --accent-green: #22c55e;
+    --accent-green-hover: #16a34a;
+    --accent-red: #ef4444;
+    --accent-red-hover: #dc2626;
+    --accent-yellow: #eab308;
+    --accent-yellow-hover: #d99f01;
+}
+
+/* Styles pour le conteneur principal de la page */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+    background-color: transparent;
+    min-height: calc(100vh - 60px); /* Assure que le conteneur occupe toute la hauteur de l'écran */
+}
+
+/* Style du titre de la page */
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    text-shadow: 2px 2px 8px var(--shadow-color);
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Conteneur pour centrer les messages de chargement et d'erreur */
+.page-center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+}
+
+/* Styles pour les états de chargement et d'erreur */
+.loading-state, .error-state {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    width: 90%;
+    max-width: 600px;
+    color: var(--accent-blue);
+    background-color: rgba(79, 70, 229, 0.1);
+}
+
+.error-state {
+    color: var(--accent-red);
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Carte de profil */
+.profile-card {
+    background-color: var(--bg-card);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.profile-icon {
+    color: var(--accent-blue);
+    margin-bottom: 1rem;
+}
+
+.profile-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.profile-details {
+    text-align: left;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.detail-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    word-break: break-all;
+}
+
+.user-id {
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+/* Formulaire d'édition */
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-card-hover);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.form-input:disabled {
+    background-color: #333;
+    color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.3);
+}
+
+/* Actions */
+.profile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-edit, .btn-save, .btn-cancel, .btn-logout {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Ajout d'une ombre aux boutons */
+}
+
+.btn-edit { background-color: var(--accent-yellow); color: #2c2c2c; }
+.btn-save { background-color: var(--accent-green); color: white; }
+.btn-cancel { background-color: var(--text-secondary); color: #2c2c2c; }
+.btn-logout { background-color: var(--accent-red); color: white; }
+
+.btn-edit:hover { background-color: var(--accent-yellow-hover); transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.25); }
+.btn-save:hover { background-color: var(--accent-green-hover); transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.25); }
+.btn-cancel:hover { background-color: #6b6b6b; transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.25); }
+.btn-logout:hover { background-color: var(--accent-red-hover); transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.25); }
